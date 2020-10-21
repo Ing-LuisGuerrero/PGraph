@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.core.content.res.ResourcesCompat
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
@@ -73,21 +74,16 @@ class LoginActivity : AppCompatActivity(), ValidateEmail {
                 finish()
             } else {
                 rlLoadingLogin.visibility = View.INVISIBLE
-                dialogOnError("Credenciales no validas")
+                MaterialAlertDialogBuilder(this)
+                    .setTitle("Error")
+                    .setMessage("Credenciales no validas")
+                    .setNegativeButton("Okey") { dialogInterface, _ ->
+                        dialogInterface.dismiss()
+                    }
+                    .setBackground(ResourcesCompat.getDrawable(resources, R.drawable.alert_dialog_bg, null))
+                    .setCancelable(false)
+                    .show()
             }
         }
     }
-
-    private fun dialogOnError(message: String) {
-        MaterialAlertDialogBuilder(this)
-            .setTitle("Error")
-            .setMessage(message)
-            .setNegativeButton("Okey") { dialogInterface, _ ->
-                dialogInterface.dismiss()
-            }
-            .setBackground(resources.getDrawable(R.drawable.alert_dialog_bg, null))
-            .setCancelable(false)
-            .show()
-    }
-
 }

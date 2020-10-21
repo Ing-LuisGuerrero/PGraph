@@ -3,4 +3,14 @@
     <string name="requiered_field">Campo obligatorio</string>
     <string name="min_length_6">Debe contener almenos 6 caracteres</string>
     <string name="invalid_email">Email no valido</string>
+    <string name="back_arrow_description">Back arrow</string>
+    <string name="new_patient_title">Nuevo paciente</string>
+    <string name="logo_description">Logo: corazon y onda de electrocardiograma</string>
+    <string name="complete_name_field">Nombre completo</string>
+    <string name="email_field">Correo electronico</string>
+    <string name="password_field">Contraseña</string>
+    <string name="password_confirm_field">Confirmar contraseña</string>
+    <string name="register_button">Registrarse</string>
+    <string name="login_button">Iniciar sesion</string>
+    <string name="logout">Salir</string>
 </resources>
