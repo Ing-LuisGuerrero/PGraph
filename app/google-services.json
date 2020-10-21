@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "199912318995",
+    "firebase_url": "https://pgraph-43d43.firebaseio.com",
+    "project_id": "pgraph-43d43",
+    "storage_bucket": "pgraph-43d43.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:199912318995:android:2e250edfd4e1f5a25537e6",
+        "android_client_info": {
+          "package_name": "com.equipo1.pgraph"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "199912318995-rsjkv1b9eckcfat5odsipvm7gv9neejv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.equipo1.pgraph",
+            "certificate_hash": "37adb8249df0fb1f6082b4dea9cc766ebfca8941"
+          }
+        },
+        {
+          "client_id": "199912318995-ccmrnntnepbgfm9b7abq2rbga4u6l46g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_cMv7IhjpJYDtRURrfc3ubCnh_WvNi7Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "199912318995-ccmrnntnepbgfm9b7abq2rbga4u6l46g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
