@@ -24,32 +24,38 @@
         android:textSize="30sp"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
+        android:fontFamily="@font/rubik"
         />
-    
-    <Button
+
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnGotoLogin"
         android:layout_width="320dp"
-        android:layout_height="70dp"
-        android:background="@drawable/rounded_button"
-        android:backgroundTint="@color/colorAccent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.Button.Rounded"
+        app:backgroundTint="@color/colorAccent"
         android:text="Entrar"
-        android:textAllCaps="true"
-        android:textSize="30sp"
         android:textColor="@color/colorPrimaryDark"
-        android:layout_gravity="center"
-        android:layout_marginTop="130dp" />
+        android:paddingVertical="10dp"
+        android:textSize="30sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="150dp"
+        android:fontFamily="@font/rubik"
+        android:letterSpacing="0.0"/>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnGotoSignup"
         android:layout_width="320dp"
-        android:layout_height="70dp"
-        android:background="@drawable/rounded_button"
-        android:backgroundTint="@color/colorPrimaryDark"
-        android:text="Nuevo paciente"
-        android:textAllCaps="true"
-        android:textSize="30sp"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.Button.Rounded"
+        app:backgroundTint="@color/colorPrimaryDark"
+        android:text="Nuevo Paciente"
         android:textColor="@color/colorAccent"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp" />
+        android:paddingVertical="10dp"
+        android:textSize="30sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/rubik"
+        android:letterSpacing="0"/>
 
 </LinearLayout>
