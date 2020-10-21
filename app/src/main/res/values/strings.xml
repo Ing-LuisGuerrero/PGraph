@@ -2,4 +2,5 @@
     <string name="app_name">PGraph</string>
     <string name="requiered_field">Campo obligatorio</string>
     <string name="min_length_6">Debe contener almenos 6 caracteres</string>
+    <string name="invalid_email">Email no valido</string>
 </resources>

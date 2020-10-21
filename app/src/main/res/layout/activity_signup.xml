@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             android:orientation="horizontal"
-            android:paddingVertical="10dp">
+            android:paddingVertical="16dp">
 
             <ImageView
                 android:id="@+id/ivArrowBack"
@@ -56,10 +56,10 @@
             android:alpha="0.5"/>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilName"
+            android:id="@+id/tilNameSignup"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
-            android:hint="Nombre"
+            android:hint="Nombre completo"
             app:startIconDrawable="@drawable/ic_baseline_person_40"
             android:layout_gravity="center_horizontal"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.Colored"
@@ -68,9 +68,10 @@
             >
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etName"
+                android:id="@+id/etNameSignup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColorHighlight="@color/colorPrimaryAlpha"
                 android:singleLine="true"
                 android:inputType="text"
                 />
@@ -78,7 +79,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilEmail"
+            android:id="@+id/tilEmailSignup"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:hint="Correo electronico"
@@ -90,9 +91,10 @@
             >
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etEmail"
+                android:id="@+id/etEmailSignup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColorHighlight="@color/colorPrimaryAlpha"
                 android:singleLine="true"
                 android:inputType="textEmailAddress"
                 />
@@ -100,7 +102,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilPassword"
+            android:id="@+id/tilPasswordSignup"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:hint="Contraseña"
@@ -113,9 +115,10 @@
             >
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etPassword"
+                android:id="@+id/etPasswordSignup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColorHighlight="@color/colorPrimaryAlpha"
                 android:singleLine="true"
                 android:inputType="textPassword"
                 />
@@ -123,7 +126,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilPasswordVerification"
+            android:id="@+id/tilPasswordVerificationSignup"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:hint="Confirmar contraseña"
@@ -136,11 +139,11 @@
             >
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etPasswordVerification"
+                android:id="@+id/etPasswordVerificationSignup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColorHighlight="@color/colorPrimaryAlpha"
                 android:singleLine="true"
-
                 android:inputType="textPassword"
                 />
 
