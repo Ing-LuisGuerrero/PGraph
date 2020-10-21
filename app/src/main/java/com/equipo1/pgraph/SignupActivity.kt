@@ -33,7 +33,7 @@ class SignupActivity : AppCompatActivity(), ValidateEmail {
         var isCorrect = true
 
         name = etNameSignup.text.toString()
-        email = etEmailSignup.text.toString()
+        email = etEmailSignup.text.toString().trim()
         password = etPasswordSignup.text.toString()
         passwordVerification = etPasswordVerificationSignup.text.toString()
 

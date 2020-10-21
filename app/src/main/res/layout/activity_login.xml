@@ -92,6 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center_horizontal"
             style="@style/Widget.MaterialComponents.Button.Rounded"
+            app:backgroundTint="@color/colorPrimaryDark"
             android:textSize="25sp"
             android:paddingVertical="10dp"
             android:text="Iniciar sesion"
