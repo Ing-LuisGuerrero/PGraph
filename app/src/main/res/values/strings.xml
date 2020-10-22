@@ -18,4 +18,6 @@
     <string name="instructions_reset_password">Se le enviará un correo para restablecer su contraseña</string>
     <string name="cancel">Cancelar</string>
     <string name="reset_pass_question">¿Olvidaste tu contraseña?</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>
