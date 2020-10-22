@@ -22,6 +22,8 @@ class LoginActivity : AppCompatActivity(), ValidateEmail {
                 login()
             }
         }
+        btnGotoResetPassword.setOnClickListener { startActivity(Intent(this, ResetPasswordActivity::class.java)) }
+        btnCancelLogin.setOnClickListener { finish() }
     }
 
 
@@ -65,15 +67,14 @@ class LoginActivity : AppCompatActivity(), ValidateEmail {
         val auth = FirebaseAuth.getInstance()
         rlLoadingLogin.visibility = View.VISIBLE
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {login ->
+            rlLoadingLogin.visibility = View.INVISIBLE
             if(login.isSuccessful) {
-                rlLoadingLogin.visibility = View.INVISIBLE
                 startActivity(
                     Intent(this, HomeActivity::class.java)
                         .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                 )
                 finish()
             } else {
-                rlLoadingLogin.visibility = View.INVISIBLE
                 MaterialAlertDialogBuilder(this)
                     .setTitle("Error")
                     .setMessage("Credenciales no validas")

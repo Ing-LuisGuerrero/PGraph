@@ -13,4 +13,9 @@
     <string name="register_button">Registrarse</string>
     <string name="login_button">Iniciar sesion</string>
     <string name="logout">Salir</string>
+    <string name="send_mail">Enviar correo</string>
+    <string name="reset_password">Restablecer contraseña</string>
+    <string name="instructions_reset_password">Se le enviará un correo para restablecer su contraseña</string>
+    <string name="cancel">Cancelar</string>
+    <string name="reset_pass_question">¿Olvidaste tu contraseña?</string>
 </resources>
