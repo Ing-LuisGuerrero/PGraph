@@ -11,11 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ResetPasswordActivity" android:configChanges="orientation" android:screenOrientation="portrait" />
-        <activity android:name=".HomeActivity" android:configChanges="orientation" android:screenOrientation="portrait" />
-        <activity android:name=".SignupActivity" android:configChanges="orientation" android:screenOrientation="portrait" />
-        <activity android:name=".LoginActivity" android:configChanges="orientation" android:screenOrientation="portrait" />
-        <activity android:name=".MainActivity" android:configChanges="orientation" android:screenOrientation="portrait">
+        <activity android:name=".activities.ResetPasswordActivity" android:configChanges="orientation" android:screenOrientation="portrait" />
+        <activity android:name=".activities.HomeActivity" android:configChanges="orientation" android:screenOrientation="portrait" />
+        <activity android:name=".activities.SignupActivity" android:configChanges="orientation" android:screenOrientation="portrait" />
+        <activity android:name=".activities.LoginActivity" android:configChanges="orientation" android:screenOrientation="portrait" />
+        <activity android:name=".activities.MainActivity" android:configChanges="orientation" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

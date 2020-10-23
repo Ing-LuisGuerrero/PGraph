@@ -5,7 +5,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity"
+    tools:context=".activities.HomeActivity"
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
@@ -45,9 +45,15 @@
             android:layout_height="match_parent"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:background="@drawable/shadow"
+                android:alpha="0.5"/>
+
             <fragment
                 android:id="@+id/fragmentContent"
-                android:name="com.equipo1.pgraph.RegisterFragment"
+                android:name="com.equipo1.pgraph.fragments.RegisterFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
 

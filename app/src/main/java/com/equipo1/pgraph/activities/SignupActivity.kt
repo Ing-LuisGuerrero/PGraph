@@ -1,12 +1,15 @@
-package com.equipo1.pgraph
+package com.equipo1.pgraph.activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
+import com.equipo1.pgraph.R
+import com.equipo1.pgraph.ValidateEmail
+import com.equipo1.pgraph.models.User
+import com.equipo1.pgraph.providers.AuthProvider
+import com.equipo1.pgraph.providers.UsersProvider
 import kotlinx.android.synthetic.main.activity_signup.*
 
 class SignupActivity : AppCompatActivity(), ValidateEmail {
@@ -106,30 +109,14 @@ class SignupActivity : AppCompatActivity(), ValidateEmail {
     }
 
     private fun signUp() {
-        val auth = FirebaseAuth.getInstance()
+        val authProvider = AuthProvider()
         rlLoadingSignup.visibility = View.VISIBLE
-        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { register ->
+        authProvider.signup(email, password).addOnCompleteListener { register ->
             when {
                 register.isSuccessful -> {
-                    val uID = auth.currentUser?.uid
-                    val data = hashMapOf(
-                        "name" to name,
-                        "email" to email
-                    )
-
-                    val db = FirebaseFirestore.getInstance()
-
+                    val uID = authProvider.getUid()
                     if (uID != null) {
-                        db.collection("Users").document(uID).set(data).addOnCompleteListener {storeData ->
-                            if(storeData.isSuccessful) {
-                                rlLoadingSignup.visibility = View.INVISIBLE
-                                startActivity(
-                                    Intent(this, HomeActivity::class.java)
-                                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                                )
-                                finish()
-                            }
-                        }
+                        registerUserInDatabase(uID)
                     }
                 }
                 else -> {
@@ -139,5 +126,23 @@ class SignupActivity : AppCompatActivity(), ValidateEmail {
             }
         }
     }
+
+    private fun registerUserInDatabase(uID: String) {
+
+        val user = User(uID, name, email)
+        val usersProvider = UsersProvider()
+
+        usersProvider.insert(user)?.addOnCompleteListener { storeData ->
+            if(storeData.isSuccessful) {
+                rlLoadingSignup.visibility = View.INVISIBLE
+                startActivity(
+                    Intent(this, HomeActivity::class.java)
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                )
+                finish()
+            }
+        }
+    }
+
 
 }

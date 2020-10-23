@@ -1,8 +1,9 @@
-package com.equipo1.pgraph
+package com.equipo1.pgraph.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.equipo1.pgraph.R
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -24,8 +25,6 @@ class MainActivity : AppCompatActivity() {
 
         //Go to SignupActivity
         btnGotoSignup.setOnClickListener { startActivity(Intent(this, SignupActivity::class.java)) }
-
-
 
     }
 }

@@ -1,12 +1,14 @@
-package com.equipo1.pgraph
+package com.equipo1.pgraph.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.res.ResourcesCompat
+import com.equipo1.pgraph.R
+import com.equipo1.pgraph.ValidateEmail
+import com.equipo1.pgraph.providers.AuthProvider
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity(), ValidateEmail {
@@ -64,9 +66,10 @@ class LoginActivity : AppCompatActivity(), ValidateEmail {
     }
 
     private fun login() {
-        val auth = FirebaseAuth.getInstance()
+        val authProvider = AuthProvider()
         rlLoadingLogin.visibility = View.VISIBLE
-        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {login ->
+
+        authProvider.login(email, password).addOnCompleteListener {login ->
             rlLoadingLogin.visibility = View.INVISIBLE
             if(login.isSuccessful) {
                 startActivity(
@@ -81,7 +84,8 @@ class LoginActivity : AppCompatActivity(), ValidateEmail {
                     .setNegativeButton("Okey") { dialogInterface, _ ->
                         dialogInterface.dismiss()
                     }
-                    .setBackground(ResourcesCompat.getDrawable(resources, R.drawable.alert_dialog_bg, null))
+                    .setBackground(ResourcesCompat.getDrawable(resources,
+                        R.drawable.alert_dialog_bg, null))
                     .setCancelable(false)
                     .show()
             }
