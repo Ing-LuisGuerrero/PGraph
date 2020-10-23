@@ -5,21 +5,17 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 
 class AuthProvider {
-    lateinit var auth: FirebaseAuth
-
-    init {
-        auth = FirebaseAuth.getInstance()
-    }
+    private val auth: FirebaseAuth = FirebaseAuth.getInstance()
 
     fun login(email: String, password: String): Task<AuthResult> {
         return auth.signInWithEmailAndPassword(email, password)
     }
 
     fun getEmail(): String? {
-        if(auth.currentUser != null) {
-            return auth.currentUser!!.email
+        return if(auth.currentUser != null) {
+            auth.currentUser!!.email
         } else {
-            return null
+            null
         }
     }
 
@@ -28,10 +24,13 @@ class AuthProvider {
     }
 
     fun getUid(): String? {
-        if(auth.currentUser != null) {
-            return auth.currentUser!!.uid
+        return if(auth.currentUser != null) {
+            auth.currentUser!!.uid
         } else {
-            return null
+            null
         }
     }
+
+    fun signOut() = auth.signOut()
+
 }

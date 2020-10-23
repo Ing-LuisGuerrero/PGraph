@@ -7,11 +7,7 @@ import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 
 class UsersProvider {
-    lateinit var collection: CollectionReference
-
-    init {
-        collection = FirebaseFirestore.getInstance().collection("Users")
-    }
+    private val collection: CollectionReference = FirebaseFirestore.getInstance().collection("Users")
 
     fun getUser(id: String): Task<DocumentSnapshot>? {
         return collection.document(id).get()
@@ -23,7 +19,7 @@ class UsersProvider {
 
     fun update(user: User): Task<Void>? {
 
-        val map = mapOf<String, String>(
+        val map = mapOf(
             "name" to user.name
         )
 

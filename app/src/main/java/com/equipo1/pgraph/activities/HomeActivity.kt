@@ -15,14 +15,12 @@ import com.equipo1.pgraph.fragments.RegisterFragment
 import com.equipo1.pgraph.providers.AuthProvider
 import com.equipo1.pgraph.providers.UsersProvider
 import com.google.android.material.navigation.NavigationView
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-    val usersProvider = UsersProvider()
-    val authProvider = AuthProvider()
+    private val usersProvider = UsersProvider()
+    private val authProvider = AuthProvider()
     val id: String?
 
     init {
@@ -35,15 +33,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         setSupportActionBar(toolbar)
 
-        val navHeader = nav_view.getHeaderView(0)
-
-        if (id != null) {
-            usersProvider.getUser(id)?.addOnCompleteListener {
-                if (it.isSuccessful) {
-//                    navHeader.findViewById<TextView>(R.id.username).text =
-                }
-            }
-        }
+        getUser()
 
         nav_view.bringToFront()
         val toggle = ActionBarDrawerToggle(
@@ -61,6 +51,18 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         nav_view.setNavigationItemSelectedListener(this)
 
 
+    }
+
+    fun getUser() {
+        authProvider.getUid()?.let {id ->
+            usersProvider.getUser(id)?.addOnSuccessListener {documentSnapshot ->
+                if (documentSnapshot.exists()) {
+                    val navHeader = nav_view.getHeaderView(0)
+                    navHeader.findViewById<TextView>(R.id.username).text = documentSnapshot.getString("name")
+                    navHeader.findViewById<TextView>(R.id.email).text = documentSnapshot.getString("email")
+                }
+            }
+        }
     }
 
     override fun onBackPressed() {
@@ -86,9 +88,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 fragment = ChartFragment()
             }
             R.id.nav_logout -> {
-                val auth = FirebaseAuth.getInstance()
-                auth.signOut()
-
+                authProvider.signOut()
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
             }
