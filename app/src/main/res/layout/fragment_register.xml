@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,108 +9,40 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-
     <LinearLayout
-        android:layout_width="330dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/rubik"
-            android:text="Presión sanguinea"
-            android:textColor="@color/colorSecondaryDark"
-            android:textFontWeight="300"
-            android:textSize="20sp" />
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <Button
-            android:id="@+id/btnHelpPressure"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center_vertical|end"
-            android:background="@drawable/ic_baseline_help_outline_24" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="330dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:orientation="horizontal">
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilPressSistolica"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.Colored"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:hint="Sistolica"
-            app:errorEnabled="true">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etPressSiastolica"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:imeOptions="actionNext"
-                android:inputType="number"
-                android:singleLine="true"
-                android:textColorHighlight="@color/colorPrimaryAlpha" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <TextView
-            android:layout_width="30dp"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/rubik_light"
-            android:gravity="center"
-            android:text="/"
-            android:textAlignment="center"
-            android:textColor="@color/colorSecondaryDark"
-            android:textSize="35dp" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilPressDiastolica"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.Colored"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:hint="Diastolica"
-            app:errorEnabled="true">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etPressDiastolica"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:imeOptions="actionNext"
-                android:inputType="number"
-                android:singleLine="true"
-                android:textColorHighlight="@color/colorPrimaryAlpha" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-    </LinearLayout>
-
-    <View
-        android:layout_width="330dp"
-        android:layout_height="2dp"
-        android:layout_marginTop="8dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/shadow" />
-
-    <LinearLayout
-        android:layout_width="330dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/rubik_light"
+                android:text="@string/blood_pressure"
+                android:textColor="@color/colorSecondaryDark"
+                android:textSize="20sp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btnHelpPressure"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical|end"
+                android:background="@drawable/ic_baseline_help_outline_24" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="330dp"
@@ -119,15 +51,15 @@
             android:orientation="horizontal">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilHeartRate"
+                android:id="@+id/tilPressSystolic"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.Colored"
-                android:layout_width="280dp"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:hint="Ritmo cardiaco"
+                android:hint="@string/systolic"
                 app:errorEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etHeartRate"
+                    android:id="@+id/etPressSystolic"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:imeOptions="actionNext"
@@ -137,42 +69,108 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-
-            <Button
-                android:id="@+id/btnHelpHeartRate"
+            <TextView
                 android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/ic_baseline_help_outline_24" />
+                android:layout_height="match_parent"
+                android:fontFamily="@font/rubik_light"
+                android:gravity="center"
+                android:text="@string/slash"
+                android:textAlignment="center"
+                android:textColor="@color/colorSecondaryDark"
+                android:textSize="35sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilPressDiastolic"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.Colored"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/diastolic"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPressDiastolic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textColorHighlight="@color/colorPrimaryAlpha" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
 
         </LinearLayout>
 
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="330dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"
-        android:orientation="vertical">
+        <View
+            android:layout_width="330dp"
+            android:layout_height="2dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/shadow" />
 
         <LinearLayout
             android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:orientation="horizontal">
+            android:layout_marginTop="24dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal"
+                tools:ignore="UselessParent">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilHeartRate"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.Colored"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/heart_rate"
+                    app:errorEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etHeartRate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:singleLine="true"
+                        android:textColorHighlight="@color/colorPrimaryAlpha" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/btnHelpHeartRate"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/ic_baseline_help_outline_24" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilOxygenSaturation"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.Colored"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
-                android:hint="Saturación de oxigeno"
+                android:hint="@string/oxygen_saturation"
                 app:errorEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -201,27 +199,19 @@
         </LinearLayout>
 
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="330dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"
-        android:orientation="vertical">
-
         <LinearLayout
             android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilNotes"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.Colored"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
-                android:hint="Saturación de oxigeno"
+                android:hint="@string/notes"
                 app:errorEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -251,27 +241,46 @@
 
         </LinearLayout>
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRegister"
+            style="@style/Widget.MaterialComponents.Button.Rounded"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/rubik"
+            android:letterSpacing="0.03"
+            android:paddingVertical="10dp"
+            android:text="@string/to_register"
+            android:textAllCaps="false"
+            android:textSize="25sp"
+            app:backgroundTint="@color/colorPrimaryDark" />
 
     </LinearLayout>
 
-    <Space
+
+    <RelativeLayout
+        android:id="@+id/rlLoadingRegister"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_height="match_parent"
+        android:visibility="invisible">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnLogin"
-        android:layout_width="330dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_horizontal"
-        style="@style/Widget.MaterialComponents.Button.Rounded"
-        app:backgroundTint="@color/colorPrimaryDark"
-        android:textSize="25sp"
-        android:paddingVertical="10dp"
-        android:text="Registrar"
-        android:textAllCaps="false"
-        android:fontFamily="@font/rubik"
-        android:letterSpacing="0.03"
-        android:layout_marginBottom="20dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.3"
+            android:background="@color/colorSecondaryDark" />
 
-</LinearLayout>
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -13,17 +13,17 @@ class UsersProvider {
         return collection.document(id).get()
     }
 
-    fun insert(user: User): Task<Void>? {
-        return user.id?.let { collection.document(it).set(user) }
+    fun insert(id: String, user: User): Task<Void>? {
+        return collection.document(id).set(user)
     }
 
-    fun update(user: User): Task<Void>? {
+    fun update(id: String, user: User): Task<Void>? {
 
         val map = mapOf(
             "name" to user.name
         )
 
-        return user.id?.let { collection.document(it).update(map) }
+        return collection.document(id).update(map)
     }
 
 }

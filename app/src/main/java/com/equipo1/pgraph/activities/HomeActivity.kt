@@ -53,7 +53,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     }
 
-    fun getUser() {
+    private fun getUser() {
         authProvider.getUid()?.let {id ->
             usersProvider.getUser(id)?.addOnSuccessListener {documentSnapshot ->
                 if (documentSnapshot.exists()) {
@@ -80,10 +80,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         var fragment: Fragment = RegisterFragment()
 
         when (item.itemId) {
-            R.id.nav_register -> {
-                fragment = RegisterFragment()
-
-            }
             R.id.nav_chart -> {
                 fragment = ChartFragment()
             }

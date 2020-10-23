@@ -35,7 +35,7 @@ class SignupActivity : AppCompatActivity(), ValidateEmail {
 
         var isCorrect = true
 
-        name = etNameSignup.text.toString()
+        name = etNameSignup.text.toString().trim()
         email = etEmailSignup.text.toString().trim()
         password = etPasswordSignup.text.toString()
         passwordVerification = etPasswordVerificationSignup.text.toString()
@@ -129,10 +129,10 @@ class SignupActivity : AppCompatActivity(), ValidateEmail {
 
     private fun registerUserInDatabase(uID: String) {
 
-        val user = User(uID, name, email)
+        val user = User(name, email)
         val usersProvider = UsersProvider()
 
-        usersProvider.insert(user)?.addOnCompleteListener { storeData ->
+        usersProvider.insert(uID, user)?.addOnCompleteListener { storeData ->
             if(storeData.isSuccessful) {
                 rlLoadingSignup.visibility = View.INVISIBLE
                 startActivity(

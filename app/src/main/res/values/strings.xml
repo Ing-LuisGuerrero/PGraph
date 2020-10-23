@@ -21,4 +21,15 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="profile_image">Imagen de perfil</string>
+    <string name="invalid_value">Entrada no valida</string>
+    <string name="invalid_pressure">Debe ser menor a la sistolica</string>
+    <string name="invalid_oxygen_saturation">La saturacion debe ser entre 0 y 100</string>
+    <string name="blood_pressure">Presión sanguinea</string>
+    <string name="slash">/</string>
+    <string name="systolic">Sistolica</string>
+    <string name="diastolic">Diastolica</string>
+    <string name="heart_rate">Ritmo cardiaco</string>
+    <string name="to_register">Registrar</string>
+    <string name="oxygen_saturation">Saturación de oxigeno</string>
+    <string name="notes">Notas</string>
 </resources>
