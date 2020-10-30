@@ -32,4 +32,7 @@
     <string name="to_register">Registrar</string>
     <string name="oxygen_saturation">Saturación de oxigeno</string>
     <string name="notes">Notas</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="pressure">Presión</string>
 </resources>

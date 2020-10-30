@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.equipo1.pgraph.fragments.ChartFragment
 import com.equipo1.pgraph.R
+import com.equipo1.pgraph.fragments.HistoryFragment
 import com.equipo1.pgraph.fragments.RegisterFragment
 import com.equipo1.pgraph.providers.AuthProvider
 import com.equipo1.pgraph.providers.UsersProvider
@@ -82,6 +83,9 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when (item.itemId) {
             R.id.nav_chart -> {
                 fragment = ChartFragment()
+            }
+            R.id.nav_history -> {
+                fragment = HistoryFragment()
             }
             R.id.nav_logout -> {
                 authProvider.signOut()
