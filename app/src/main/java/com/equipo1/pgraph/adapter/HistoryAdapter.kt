@@ -37,8 +37,8 @@ class HistoryAdapter(val historyListener: HistoryListener): RecyclerView.Adapter
         holder.tvItemDate.text = simpleDateFormat.format(register.datetime)
         holder.tvItemHour.text = simpleHourFormat.format(register.datetime)
 
-        holder.itemView.setOnClickListener {
-            historyListener.onHistoryClicked(register, position)
+        holder.tvItemNotes.setOnClickListener {
+            historyListener.onHistoryNotesClicked(register, position)
         }
 
     }

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,6 +15,7 @@ import com.equipo1.pgraph.adapter.HistoryListener
 import com.equipo1.pgraph.models.Register
 import com.equipo1.pgraph.models.RegisterSerializable
 import com.equipo1.pgraph.viewmodel.HistoryViewModel
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.fragment_history.*
 
 class HistoryFragment : Fragment(), HistoryListener {
@@ -65,7 +67,27 @@ class HistoryFragment : Fragment(), HistoryListener {
     }
 
 
-    override fun onHistoryClicked(register: RegisterSerializable, position: Int) {
-        println(register.toString())
+    override fun onHistoryNotesClicked(register: RegisterSerializable, position: Int) {
+
+        val notes = register.notes
+
+        val message = when(notes.isNotEmpty()) {
+            true -> notes
+            false -> "No se registraron notas en este reporte."
+        }
+
+        this.activity?.let {
+            MaterialAlertDialogBuilder(it)
+                .setTitle("Notas")
+                .setMessage(message)
+                .setPositiveButton("Okey") { dialogInterface, _ ->
+                    dialogInterface.dismiss()
+                }
+                .setBackground(
+                    ResourcesCompat.getDrawable(resources,
+                        R.drawable.alert_dialog_bg, null))
+                .setCancelable(false)
+                .show()
+        }
     }
 }
