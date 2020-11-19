@@ -1,5 +1,6 @@
 package com.equipo1.pgraph.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import java.lang.Exception
@@ -29,10 +30,12 @@ class HistoryViewModel(): ViewModel() {
         registersProvider.getHistory(id, object: Callback<List<RegisterSerializable>> {
             override fun onSuccess(result: List<RegisterSerializable>?) {
                 listHistory.postValue(result)
+                Log.d("Cayo", "Dentro de onSuccess")
                 processFinished()
             }
 
             override fun onFailed(exception: Exception) {
+                Log.d("Cayo", "Dentro de onFailed")
                 processFinished()
             }
 
@@ -41,7 +44,7 @@ class HistoryViewModel(): ViewModel() {
 
 
     fun processFinished() {
-        isLoading.value = true
+        isLoading.value = false
     }
 
 }

@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.equipo1.pgraph.R
 import com.equipo1.pgraph.providers.AuthProvider
 import com.equipo1.pgraph.providers.RegistersProvider
@@ -60,9 +59,6 @@ class ChartFragment : Fragment() {
                         datetime += simpleDateFormat.format(date)
                     }
                 }
-
-                Toast.makeText(this.activity, datetime[0].toString(), Toast.LENGTH_LONG).show()
-
 
                 plotData(systolic, diastolic, heartRate, oxygenSaturation, datetime)
 

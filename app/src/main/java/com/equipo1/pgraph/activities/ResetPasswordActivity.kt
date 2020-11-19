@@ -22,7 +22,6 @@ class ResetPasswordActivity : AppCompatActivity(), ValidateEmail {
         btnCancelResetPassword.setOnClickListener { finish() }
         btnSendEmailToResetPassword.setOnClickListener {
             if(isFormValid()) {
-                Toast.makeText(this, "Enviando email", Toast.LENGTH_LONG).show()
                 sendEmailToResetPassword()
             }
         }
@@ -72,9 +71,6 @@ class ResetPasswordActivity : AppCompatActivity(), ValidateEmail {
             .setMessage("El email ha sido enviado")
             .setPositiveButton("Okey") { dialogInterface, _ ->
                 dialogInterface.dismiss()
-                startActivity(
-                    Intent(this, LoginActivity::class.java)
-                )
                 finish()
             }
             .setBackground(ResourcesCompat.getDrawable(resources, R.drawable.alert_dialog_bg, null))

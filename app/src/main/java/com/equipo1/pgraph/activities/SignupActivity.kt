@@ -11,6 +11,7 @@ import com.equipo1.pgraph.models.User
 import com.equipo1.pgraph.providers.AuthProvider
 import com.equipo1.pgraph.providers.UsersProvider
 import kotlinx.android.synthetic.main.activity_signup.*
+import java.util.regex.Pattern
 
 class SignupActivity : AppCompatActivity(), ValidateEmail {
     private lateinit var name: String
@@ -46,8 +47,13 @@ class SignupActivity : AppCompatActivity(), ValidateEmail {
                 tilNameSignup.isErrorEnabled = true
                 isCorrect = false
             }
-            name.trim().length < 6 -> {
+            name.length < 6 -> {
                 tilNameSignup.error = getString(R.string.min_length_6)
+                tilNameSignup.isErrorEnabled = true
+                isCorrect = false
+            }
+            !isNameValid(name) -> {
+                tilNameSignup.error = "Nombre invalido. Ingrese su nombre completo sin signos de puntuación."
                 tilNameSignup.isErrorEnabled = true
                 isCorrect = false
             }
@@ -129,7 +135,7 @@ class SignupActivity : AppCompatActivity(), ValidateEmail {
 
     private fun registerUserInDatabase(uID: String) {
 
-        val user = User(name, email)
+        val user = User(name.capitalizeWords(), email)
         val usersProvider = UsersProvider()
 
         usersProvider.insert(uID, user)?.addOnCompleteListener { storeData ->
@@ -144,5 +150,14 @@ class SignupActivity : AppCompatActivity(), ValidateEmail {
         }
     }
 
+    private fun isNameValid(name: String): Boolean {
+        val expression = "^([A-Z][a-z]+\\s[A-Z][a-z]+)(\\s[A-Z][a-z]+(\\s[A-Z][a-z]+)?)?$"
+        val pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE)
+        val matcher = pattern.matcher(name)
+
+        return matcher.matches()
+    }
+
+    fun String.capitalizeWords(): String = split(" ").joinToString(" ") { it.capitalize() }
 
 }

@@ -6,6 +6,7 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import java.lang.NullPointerException
 
 
 class RegistersProvider {
@@ -23,11 +24,18 @@ class RegistersProvider {
         getRegistersByUser(id).orderBy("datetime", Query.Direction.DESCENDING)
             .get()
             .addOnSuccessListener {result ->
-                for (document in result) {
-                    val list = result.toObjects(RegisterSerializable::class.java)
-                    callback.onSuccess(list)
-                    break
+                if(result.isEmpty) {
+                    callback.onSuccess(result.toObjects(RegisterSerializable::class.java))
+                } else {
+                    for (document in result) {
+                        val list = result.toObjects(RegisterSerializable::class.java)
+                        callback.onSuccess(list)
+                        break
+                    }
                 }
+            }
+            .addOnFailureListener {
+                callback.onFailed(it)
             }
     }
 

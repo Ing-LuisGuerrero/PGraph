@@ -41,6 +41,11 @@ class RegisterFragment : Fragment() {
 
         btnRegister.setOnClickListener { submit() }
 
+        btnHelpPressure.setOnClickListener { createDialog("Información", "Ingrese su presión sanguinea, la presión diastolica nunca es mayor que la sistolica.", "Entendido") }
+        btnHelpHeartRate.setOnClickListener { createDialog("Información", "Ingrese su ritmo cardiaco. Se mide en latidos por minutos. Ejemplo de entrada: 100.", "Entendido") }
+        btnHelpOxygenSaturation.setOnClickListener { createDialog("Información", "La saturación de oxigeno es el nivel de oxigeno en la sangre. Se mide con oxímetro. Es medido en porcentaje.", "Entendido") }
+        btnHelpNotes.setOnClickListener { createDialog("Información", "Aquí puedes anotar datos o cambios que consideras importantes, como el cambio de dieta o medicamento.", "Entendido") }
+
         super.onViewCreated(view, savedInstanceState)
     }
 
@@ -71,17 +76,7 @@ class RegisterFragment : Fragment() {
 
                 if(documentReference.isSuccessful) {
 
-                    MaterialAlertDialogBuilder(this.requireContext())
-                        .setTitle("Guardado")
-                        .setMessage("Informacion guardada con exito")
-                        .setNegativeButton("Okey") { dialogInterface, _ ->
-                            dialogInterface.dismiss()
-                        }
-                        .setBackground(
-                            ResourcesCompat.getDrawable(resources,
-                            R.drawable.alert_dialog_bg, null))
-                        .setCancelable(false)
-                        .show()
+                    createDialog("Guardado", "Informacion guardada con exito", "Okey")
 
                     resetFragment()
 
@@ -220,5 +215,19 @@ class RegisterFragment : Fragment() {
         } catch (e: Exception) {
             Log.d("Error", e.message.toString())
         }
+    }
+
+    private fun createDialog(title: String, message: String, buttonTitle: String) {
+        MaterialAlertDialogBuilder(this.requireContext())
+            .setTitle(title)
+            .setMessage(message)
+            .setNegativeButton(buttonTitle) { dialogInterface, _ ->
+                dialogInterface.dismiss()
+            }
+            .setBackground(
+                ResourcesCompat.getDrawable(resources,
+                    R.drawable.alert_dialog_bg, null))
+            .setCancelable(false)
+            .show()
     }
 }
